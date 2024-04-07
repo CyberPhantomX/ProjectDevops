@@ -1,4 +1,4 @@
-resource "devOps Security Group" "devOps-sg" {
+resource "aws_Security_Group" "devOps-sg" {
   name        = "devOps Security Group"
   description = "Open 22,443,80,8080,9090,3000"
   ingress = [
@@ -28,7 +28,7 @@ resource "aws_instance" "Jenkins" {
   ami                    = "ami-043dd7c072304d1db"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
-  vpc_security_group_ids = [aws_security_group.ProjetDevops-sg.id]
+  vpc_security_group_ids = [aws_security_group.devOps-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
   tags = {
     Name = "Jenkins"
