@@ -1,4 +1,4 @@
-resource "aws_Security_Group" "devOps-sg" {
+resource "aws_security_sroup" "devOps-sg" {
   name        = "devOps Security Group"
   description = "Open 22,443,80,8080,9090,3000"
   ingress = [
