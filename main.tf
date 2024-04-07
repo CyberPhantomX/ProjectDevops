@@ -21,11 +21,11 @@ resource "aws_security_group" "ProjeDevops-sg" {
    	 cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "devOps-sg"
+    Name = "ProjetDevOps-sg"
   }
 }
 resource "aws_instance" "Jenkins" {
-  ami                    = "ami-0c7217cdde317cfec"  #change Ami if you different region
+  ami                    = "ami-043dd7c072304d1db"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
   vpc_security_group_ids = [aws_security_group.ProjetDevops-sg.id]
@@ -39,7 +39,7 @@ resource "aws_instance" "Jenkins" {
 }
 
 resource "aws_instance" "Prometheus-Grafana" {
-  ami                    = "ami-0c7217cdde317cfec"  #change Ami if you different region
+  ami                    = "ami-043dd7c072304d1db"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
   vpc_security_group_ids = [aws_security_group.ProjetDevops-sg.id]
