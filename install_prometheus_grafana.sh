@@ -1,16 +1,16 @@
 #!/bin/bash
  sudo useradd --system --no-create-home --shell /bin/false prometheus 
  sudo apt install wget -y
- wget https://github.com/prometheus/prometheus/releases/download/v2.47.1/prometheus-2.51.1.linux-amd64.tar.gz
- tar -xvf prometheus-2.51.1.linux-amd64.tar.gz
+ wget https://github.com/prometheus/prometheus/releases/download/v2.47.1/prometheus-2.51.1.linux-386.tar.gz
+ tar -xvf prometheus-2.51.1.linux-386.tar.gz
  sudo mkdir -p /data /etc/prometheus
- cd prometheus-2.51.1.linux-amd64/
+ cd prometheus-2.51.1.linux-386/
  sudo mv prometheus promtool /usr/local/bin/
  sudo mv consoles/ console_libraries/ /etc/prometheus/
  sudo mv prometheus.yml /etc/prometheus/prometheus.yml
  sudo chown -R prometheus:prometheus /etc/prometheus/ /data/
  cd
- rm -rf prometheus-2.51.1.linux-amd64.tar.gz
+ rm -rf prometheus-2.51.1.linux-386.tar.gz
  sudo touch /etc/systemd/system/prometheus.service
  echo "
 [Unit]
