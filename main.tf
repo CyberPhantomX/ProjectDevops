@@ -1,5 +1,5 @@
-resource "aws_security_group" "devOps-sg" {
-  name        = "devOps Security Group"
+resource "aws_security_group" "ProjeDevops-sg" {
+  name        = "ProjetDevops Security Group"
   description = "Open 22,443,80,8080,9090,3000"
   ingress = [
     	for port in [22, 80, 443, 8080 ,9090,3000] : {
@@ -28,7 +28,7 @@ resource "aws_instance" "Jenkins" {
   ami                    = "ami-0c7217cdde317cfec"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
-  vpc_security_group_ids = [aws_security_group.devOps-sg.id]
+  vpc_security_group_ids = [aws_security_group.ProjetDevops-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
   tags = {
     Name = "Jenkins"
@@ -42,7 +42,7 @@ resource "aws_instance" "Prometheus-Grafana" {
   ami                    = "ami-0c7217cdde317cfec"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
-  vpc_security_group_ids = [aws_security_group.devOps-sg.id]
+  vpc_security_group_ids = [aws_security_group.ProjetDevops-sg.id]
   user_data              = templatefile("./install_prometheus_grafana.sh", {})
   tags = {
     Name = "Prometheus-Grafana"
