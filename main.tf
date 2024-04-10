@@ -25,7 +25,7 @@ resource "aws_security_group" "ProjectdevOps-sg" {
   }
 }
 resource "aws_instance" "Jenkins" {
-  ami                    = "ami-087da76081e7685da"  #change Ami if you different region
+  ami                    = "ami-00c71bd4d220aa22a"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
   vpc_security_group_ids = [aws_security_group.ProjectdevOps-sg.id]
@@ -39,7 +39,7 @@ resource "aws_instance" "Jenkins" {
 }
 
 resource "aws_instance" "Prometheus-Grafana" {
-  ami                    = "ami-087da76081e7685da"  #change Ami if you different region
+  ami                    = "ami-00c71bd4d220aa22a"  #change Ami if you different region
   instance_type          = "t2.micro"
   key_name               = "KeyPairJeremy"
   vpc_security_group_ids = [aws_security_group.ProjectdevOps-sg.id]
